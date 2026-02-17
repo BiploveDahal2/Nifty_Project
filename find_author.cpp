@@ -6,7 +6,7 @@
 using namespace std;
 
 int main() {
-    string sig_dir = "signature_files"; 
+    string sig_dir = "Signature_files"; 
     DIR *dir;
     struct dirent *entry;
 
@@ -25,9 +25,10 @@ int main() {
     while ((entry = readdir(dir)) != NULL) {
         string filename = entry->d_name;
 
+
         // 3. Filter for .stats files specifically
         // We ignore "." (current dir) and ".." (parent dir)
-        if (filename.find(".stats") != string::npos) {
+        if (filename.find(".stat") != string::npos) {
             cout << "Found signature file: " << filename << endl;
             
             // This is where you will call your function to:
@@ -35,6 +36,8 @@ int main() {
             // b) Compare it to the mystery text
         }
     }
+
+    
 
     
     closedir(dir);
